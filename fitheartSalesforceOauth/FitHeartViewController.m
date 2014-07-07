@@ -84,11 +84,12 @@ static NSString * const password      = @"fitheartmobileapi149z7gMQq5pR5hMp5ythB
         results = [sforce create:[NSArray arrayWithObject:section_mood]];
         
         NSLog(@"Sections created for the Participant!");
+        NSLog(@"-------------------------------------");
         
         NSLog(@"Query all Participants and show result");
         ZKQueryResult *qr = [sforce query:@"SELECT Id, study_id__c FROM FitHeart_Participant__c"];
         for (ZKSObject *o in [qr records]) {
-            NSLog(@"%@", [o fieldValue:@"study_id__c"]);
+            NSLog(@"Study ID: %@, Salesforce ID: %@", [o fieldValue:@"study_id__c"], [o fieldValue:@"Id"]);
         }
         
     }else
